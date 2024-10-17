@@ -533,6 +533,7 @@
                     <div class="form-group">
                       <input
                         type="text"
+                        id="namee"
                         class="form-control"
                         placeholder="Name"
                       />
@@ -542,6 +543,7 @@
                     <div class="form-group">
                       <input
                         type="email"
+                        id="email"
                         class="form-control"
                         placeholder="Email"
                       />
@@ -554,6 +556,7 @@
                       <input
                         type="text"
                         class="form-control"
+                        id="subject"
                         placeholder="Subject"
                       />
                     </div>
@@ -565,7 +568,7 @@
                       <textarea
                         name=""
                         class="form-control"
-                        id=""
+                        id="message"
                         placeholder="Message"
                       ></textarea>
                     </div>
@@ -599,10 +602,13 @@
         <span class="color-5" onclick="setActiveStyle('color-5')"></span>
       </div>
     </div>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
     <script type="text/javascript">
       (function () {
-        emailjs.init('HvI4KYyNNtBAuIzCX'); // Replace with your EmailJS user ID
+        emailjs.init('HvI4KYyNNtBAuIzCX');
       })();
 
       document
@@ -610,16 +616,10 @@
         .addEventListener('click', function (event) {
           event.preventDefault();
 
-          let name = document.querySelector('input[placeholder="Name"]').value;
-          let email = document.querySelector(
-            'input[placeholder="Email"]'
-          ).value;
-          let subject = document.querySelector(
-            'input[placeholder="Subject"]'
-          ).value;
-          let message = document.querySelector(
-            'textarea[placeholder="Message"]'
-          ).value;
+          var name = document.getElementById('namee').value;
+          var email = document.getElementById('email').value;
+          var subject = document.getElementById('subject').value;
+          var message = document.getElementById('message').value;
 
           // Send email through EmailJS
           emailjs
@@ -634,6 +634,7 @@
                 alert('Message sent successfully!');
               },
               function (error) {
+                console.log(error);
                 alert('Failed to send message, please try again.');
               }
             );
