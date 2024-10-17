@@ -573,13 +573,7 @@
                 </div>
                 <div class="row">
                   <div class="form-item col-12 padd-15">
-                    <button
-                      type="submit"
-                      href="mailto:temesgenberhanu674@gmail.com"
-                      class="btn"
-                    >
-                      Send Message
-                    </button>
+                    <button id="send-email" class="btn">Send Message</button>
                   </div>
                 </div>
               </div>
@@ -605,6 +599,46 @@
         <span class="color-5" onclick="setActiveStyle('color-5')"></span>
       </div>
     </div>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init('HvI4KYyNNtBAuIzCX'); // Replace with your EmailJS user ID
+      })();
+
+      document
+        .getElementById('send-email')
+        .addEventListener('click', function (event) {
+          event.preventDefault();
+
+          let name = document.querySelector('input[placeholder="Name"]').value;
+          let email = document.querySelector(
+            'input[placeholder="Email"]'
+          ).value;
+          let subject = document.querySelector(
+            'input[placeholder="Subject"]'
+          ).value;
+          let message = document.querySelector(
+            'textarea[placeholder="Message"]'
+          ).value;
+
+          // Send email through EmailJS
+          emailjs
+            .send('service_r26bagq', 'template_tzv0l4q', {
+              from_name: name,
+              from_email: email,
+              subject: subject,
+              message: message,
+            })
+            .then(
+              function (response) {
+                alert('Message sent successfully!');
+              },
+              function (error) {
+                alert('Failed to send message, please try again.');
+              }
+            );
+        });
+    </script>
 
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.js"
