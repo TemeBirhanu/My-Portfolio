@@ -1,6 +1,13 @@
-var typed = new Typed(".typing", {
-    strings: ["","Software Engineer", "Web Designer", "Web Developer", "Mobile App Developer","Graphic Designer"],
-    typeSpeed: 100,
-    BackSpeed: 60,
-    loop: true
+var typed = new Typed('.typing', {
+  strings: [
+    '',
+    'Software Engineer',
+    'Web Developer',
+    'Cloud Deployment Specialist',
+    'Mobile App Developer',
+    'Machine Learning Engineer',
+  ],
+  typeSpeed: 100,
+  BackSpeed: 60,
+  loop: true,
 });
