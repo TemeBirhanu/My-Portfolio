@@ -3,6 +3,7 @@ var typed = new Typed('.typing', {
     '',
     'Software Engineer',
     'Web Developer',
+    'Data scientist',
     'Cloud Deployment Specialist',
     'Mobile App Developer',
     'Machine Learning Engineer',
